@@ -1,5 +1,7 @@
 ﻿
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,10 +10,12 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     bool isGrounded = false;
+    bool isAlive = true;
 
     Rigidbody2D rb;
 
-
+    public TextMeshProUGUI text;
+    Score scoreStruct;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +32,12 @@ public class PlayerScript : MonoBehaviour
                 isGrounded = false;
             }
         }
+
+        if (isAlive)
+        {
+            scoreStruct.score += Time.deltaTime * 4;
+            text.text = "SCORE: " + scoreStruct.score.ToString("F");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +46,12 @@ public class PlayerScript : MonoBehaviour
         {
             if (isGrounded == false)
                 isGrounded = true;
-        }    
+        }
+
+        if (collision.gameObject.CompareTag("Pumpkin"))
+        {
+            isAlive = false;
+            Time.timeScale = 0;
+        }
     }
 }
