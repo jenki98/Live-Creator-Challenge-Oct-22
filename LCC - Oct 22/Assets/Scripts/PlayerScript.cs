@@ -14,11 +14,18 @@ public class PlayerScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public float timer = 0.0f;
     public TextMeshProUGUI text;
-    Score scoreStruct;
+    public GameObject scoreManager;
+    public GameObject gameOver;
+    ScoreManager smScript;
+    int score;
     private void Awake()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
+        smScript = scoreManager.GetComponent<ScoreManager>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -35,8 +42,10 @@ public class PlayerScript : MonoBehaviour
 
         if (isAlive)
         {
-            scoreStruct.score += Time.deltaTime * 4;
-            text.text = "SCORE: " + scoreStruct.score.ToString("F");
+            timer += Time.deltaTime;
+            //scoreStruct.score = (int)(timer % 60);
+            score = (int)(timer % 60);
+            text.text = "SCORE: " + score.ToString("F");
         }
     }
 
@@ -50,8 +59,19 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Pumpkin"))
         {
+            PlayerPrefs.SetInt("Score", score);
             isAlive = false;
+            SendScore();
             Time.timeScale = 0;
+        }
+    }
+
+    void SendScore()
+    {
+        gameOver.SetActive(true);
+        if (isAlive == false)
+        {
+            smScript.SendLeaderboard();
         }
     }
 }

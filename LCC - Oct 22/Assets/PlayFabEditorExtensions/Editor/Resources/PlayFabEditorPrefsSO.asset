@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: zaynab.bawa@gmail.com
-  DevAccountToken: 5ktzfcdoiwah8k8o1qdw1tre3fe4rszt1ho79izsiok3kuzniww9snt84q154jmeusi3da7ozgw5hic6cg1a61ibxwq53kk4q3sgxbwmpj7p3bqd1jcpnttauzdo7sbq5pwti7od47crf7ikfuppytgzgc75pe63skue9w5g1b3y47ep1zhu5j1zsqsf4wtuwixnkq4f
-  SelectedStudio: 
+  DevAccountToken: gr5e167y7f15jrt87189piiojbg97fw76bbhy1ubthqki5yng4ue439y7fmx5tsz8zosboaqzequ7ycj3mu4m4xhc84owo1oihbmzehuxgj7rp4wanky5rzuf1fi8hsjpqr6wec6finsdjzdboe467himyeiysrgk47d5tmxhyaju1dmrzzwng3fq7qqn5uxw37ypd18
+  SelectedStudio: Jenki
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
-  PanelIsShown: 1
-  curMainMenuIdx: 0
+  PanelIsShown: 0
+  curMainMenuIdx: 1
   curSubMenuIdx: 0
